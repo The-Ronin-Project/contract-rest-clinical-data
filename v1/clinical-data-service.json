@@ -1,0 +1,25 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Clinical Data Service",
+        "description": "The CDS API contract",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "tags": [
+        {
+            "name": "diagnosis",
+            "description": "Relating to cancer diagnosis"
+        },
+        {
+            "name": "patient",
+            "description": "Relating to patients"
+        }
+    ],
+    "paths": {
+    }
+}
