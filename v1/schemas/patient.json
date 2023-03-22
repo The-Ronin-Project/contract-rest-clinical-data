@@ -1,0 +1,110 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+        "title": "",
+        "version": ""
+    },
+    "components": {
+        "schemas": {
+            "Patient": {
+                "title": "Patient",
+                "description": "The patient object",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "mrn": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "birthSex": {
+                        "type": "string"
+                    },
+                    "birthDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "telecoms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
+                        }
+                    },
+                    "createdAt": {
+                        "type": "number"
+                    },
+                    "updatedAt": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "active",
+                    "mrn",
+                    "displayName",
+                    "birthSex",
+                    "telecoms"
+                ]
+            },
+            "CreatePatientRequestBody": {
+                "title": "Input structure for creating a patient",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "mrn": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "birthSex": {
+                        "type": "string"
+                    },
+                    "birthDate": {
+                        "type": "string"
+                    },
+                    "telecoms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "displayName"
+                ]
+            },
+            "CreatePatientResponseBody": {
+                "title": "Response for successful create",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": ["id"]
+            }
+        }
+    }
+}
