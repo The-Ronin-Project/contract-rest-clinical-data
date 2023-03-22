@@ -1,0 +1,228 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Clinical Data Service",
+        "description": "The CDS API contract",
+        "contact": {
+            "name": "Ronin Internal",
+            "email": "nobody@projectronin.com",
+            "url": "https://github.com/projectronin/prodeng-clinical-data"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "tags": [
+        {
+            "name": "diagnosis",
+            "description": "Relating to cancer diagnosis"
+        },
+        {
+            "name": "patient",
+            "description": "Relating to patients"
+        }
+    ],
+    "paths": {
+        "/patient": {
+            "post": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Store patient record",
+                "description": "Stores an patient record",
+                "operationId": "addPatient",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/patient.json#/components/schemas/CreatePatientRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/patient.json#/components/schemas/CreatePatientResponseBody"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The user was not authorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/patient/{patientId}": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Get patient record",
+                "description": "Retrieves a patient record",
+                "operationId": "getPatientById",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/common-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A patient record was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The user was not authorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient record was not found with the given id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Delete patient record",
+                "description": "Deletes a patient record",
+                "operationId": "deletePatient",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "description": "ID of patient to query by",
+                        "required": true,
+                        "schema": {
+                            "$ref": "schemas/common-types.json#/components/schemas/PatientId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The user was not authorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient record was not found with the given id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "seki": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
