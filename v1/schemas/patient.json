@@ -18,6 +18,9 @@
                     "tenantId": {
                         "type": "string"
                     },
+                    "versionId": {
+                        "type": "string"
+                    },
                     "active": {
                         "type": "boolean"
                     },
@@ -40,21 +43,32 @@
                             "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
                         }
                     },
-                    "createdAt": {
+                    "isDeceased": {
+                        "type": "boolean"
+                    },
+                    "originCreatedAt": {
                         "type": "number"
                     },
-                    "updatedAt": {
+                    "originUpdatedAt": {
+                        "type": "number"
+                    },
+                    "rowCreatedAt": {
+                        "type": "number"
+                    },
+                    "rowUpdatedAt": {
                         "type": "number"
                     }
                 },
                 "required": [
                     "id",
                     "tenantId",
+                    "versionId",
                     "active",
                     "mrn",
                     "displayName",
                     "birthSex",
-                    "telecoms"
+                    "telecoms",
+                    "isDeceased"
                 ]
             },
             "CreatePatientRequestBody": {
@@ -65,6 +79,9 @@
                         "type": "string"
                     },
                     "tenantId": {
+                        "type": "string"
+                    },
+                    "versionId": {
                         "type": "string"
                     },
                     "active": {
@@ -87,12 +104,27 @@
                         "items": {
                             "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
                         }
+                    },
+                    "isDeceased": {
+                        "type": "boolean"
+                    },
+                    "originCreatedAt": {
+                        "type": "number"
+                    },
+                    "originUpdatedAt": {
+                        "type": "number"
                     }
                 },
                 "required": [
                     "id",
                     "tenantId",
-                    "displayName"
+                    "versionId",
+                    "mrn",
+                    "displayName",
+                    "birthSex",
+                    "isDeceased",
+                    "originCreatedAt",
+                    "originUpdatedAt"
                 ]
             },
             "CreatePatientResponseBody": {

@@ -27,6 +27,59 @@
     ],
     "paths": {
         "/patient": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Searches for patients by name or mrn",
+                "description": "Get a list of patients matching a search parameter",
+                "operationId": "searchPatients",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of patients matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The user was not authorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "post": {
                 "tags": [
                     "patient"
