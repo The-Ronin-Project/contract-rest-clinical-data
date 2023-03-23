@@ -25,10 +25,12 @@
                         "type": "string"
                     },
                     "startDateTime": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "endDateTime": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "locations": {
                         "type": "array",
@@ -43,16 +45,20 @@
                         }
                     },
                     "originCreatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "originUpdatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "rowCreatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "rowUpdatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "required": [
@@ -81,10 +87,12 @@
                         "type": "string"
                     },
                     "startDateTime": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "endDateTime": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "locations": {
                         "type": "array",
@@ -99,10 +107,12 @@
                         }
                     },
                     "originCreatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "originUpdatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "required": [
