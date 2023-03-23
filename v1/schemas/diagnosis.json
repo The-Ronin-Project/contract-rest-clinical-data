@@ -7,9 +7,9 @@
     },
     "components": {
         "schemas": {
-            "Patient": {
-                "title": "Patient",
-                "description": "The patient object",
+            "CancerDiagnosis": {
+                "title": "Cancer Diagnosis",
+                "description": "The diagnosis object",
                 "type": "object",
                 "properties": {
                     "id": {
@@ -21,30 +21,20 @@
                     "versionId": {
                         "type": "string"
                     },
-                    "active": {
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "isActive": {
                         "type": "boolean"
                     },
-                    "mrn": {
-                        "type": "string"
-                    },
-                    "displayName": {
-                        "type": "string"
-                    },
-                    "birthSex": {
-                        "type": "string"
-                    },
-                    "birthDate": {
-                        "type": "string",
-                        "format": "date"
-                    },
-                    "telecoms": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
-                        }
-                    },
-                    "isDeceased": {
+                    "isPrimary": {
                         "type": "boolean"
+                    },
+                    "cancerType": {
+                        "type": "string"
+                    },
+                    "diagnosisDate": {
+                        "type": "number"
                     },
                     "originCreatedAt": {
                         "type": "number"
@@ -57,22 +47,26 @@
                     },
                     "rowUpdatedAt": {
                         "type": "number"
+                    },
+                    "derivedReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CancerDiagnosisResourceReference"
+                        }
                     }
                 },
                 "required": [
                     "id",
                     "tenantId",
                     "versionId",
-                    "active",
-                    "mrn",
-                    "displayName",
-                    "birthSex",
-                    "telecoms",
-                    "isDeceased"
+                    "isActive",
+                    "isPrimary",
+                    "cancerType",
+                    "derivedReferences"
                 ]
             },
-            "CreatePatientRequestBody": {
-                "title": "Input structure for creating a patient",
+            "CreateCancerDiagnosisRequestBody": {
+                "title": "Input structure for creating a CancerDiagnosis",
                 "type": "object",
                 "properties": {
                     "id": {
@@ -84,35 +78,26 @@
                     "versionId": {
                         "type": "string"
                     },
-                    "active": {
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "isActive": {
                         "type": "boolean"
                     },
-                    "mrn": {
+                    "isPrimary": {
+                        "type": "boolean"
+                    },
+                    "cancerType": {
                         "type": "string"
                     },
-                    "displayName": {
-                        "type": "string"
+                    "diagnosisDate": {
+                        "type": "number"
                     },
-                    "birthSex": {
-                        "type": "string"
-                    },
-                    "birthDate": {
-                        "type": "string"
-                    },
-                    "telecoms": {
+                    "derivedReferences": {
                         "type": "array",
                         "items": {
-                            "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
+                            "$ref": "#/components/schemas/CancerDiagnosis"
                         }
-                    },
-                    "isDeceased": {
-                        "type": "boolean"
-                    },
-                    "originCreatedAt": {
-                        "type": "number"
-                    },
-                    "originUpdatedAt": {
-                        "type": "number"
                     }
                 },
                 "required": [
@@ -127,15 +112,21 @@
                     "originUpdatedAt"
                 ]
             },
-            "CreatePatientResponseBody": {
-                "title": "Response for successful create",
+            "CancerDiagnosisResourceReference": {
+                "description": "References to linked records",
                 "type": "object",
                 "properties": {
-                    "id": {
+                    "resourceType": {
+                        "type": "string"
+                    },
+                    "resourceId": {
                         "type": "string"
                     }
                 },
-                "required": ["id"]
+                "required": [
+                    "resourceType",
+                    "resourceId"
+                ]
             }
         }
     }

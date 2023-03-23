@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "1.0.0"
+        "version": "1.0.1"
     },
     "servers": [
         {
@@ -16,6 +16,10 @@
         }
     ],
     "tags": [
+        {
+            "name": "appointment",
+            "description": "Relating to appointments"
+        },
         {
             "name": "diagnosis",
             "description": "Relating to cancer diagnosis"
@@ -26,7 +30,305 @@
         }
     ],
     "paths": {
+        "/appointment": {
+            "get": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Query appointments by patientId",
+                "description": "Retrieves appointment records for patientId",
+                "operationId": "getAppointmentsByPatientId",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of appointments matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Store appointment record",
+                "description": "Stores an appointment record",
+                "operationId": "saveAppointment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/appointment.json#/components/schemas/CreateAppointmentRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/appointment/{id}": {
+            "get": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Get appointment record",
+                "description": "Retrieves an appointment record",
+                "operationId": "getAppointmentById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Appointment was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Delete appointment record",
+                "description": "Deletes an appointment record",
+                "operationId": "deleteAppointment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/diagnosis": {
+            "post": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Store diagnosis record",
+                "description": "Stores an diagnosis record",
+                "operationId": "saveDiagnosis",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/diagnosis.json#/components/schemas/CreateCancerDiagnosisRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/diagnosis.json#/components/schemas/CancerDiagnosis"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/diagnosis/{id}": {
+            "get": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Get diagnosis record",
+                "description": "Retrieves a diagnosis record",
+                "operationId": "getDiagnosisById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diagnosis was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/diagnosis.json#/components/schemas/CancerDiagnosis"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Delete diagnosis record",
+                "description": "Deletes a diagnosis record",
+                "operationId": "deleteDiagnosis",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
         "/patient": {
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Searches for patients by name or mrn",
+                "description": "Get a list of patients matching a search parameter",
+                "operationId": "searchPatients",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of patients matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/patient.json#/components/schemas/Patient"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The user was not authorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
             "post": {
                 "tags": [
                     "patient"
@@ -207,7 +509,8 @@
                                 }
                             }
                         }
-                    }                },
+                    }
+                },
                 "security": [
                     {
                         "seki": []
