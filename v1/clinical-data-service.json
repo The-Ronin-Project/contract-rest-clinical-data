@@ -17,6 +17,10 @@
     ],
     "tags": [
         {
+            "name": "appointment",
+            "description": "Relating to appointments"
+        },
+        {
             "name": "diagnosis",
             "description": "Relating to cancer diagnosis"
         },
@@ -26,6 +30,145 @@
         }
     ],
     "paths": {
+        "/appointment": {
+            "get": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Query appointments by patientId",
+                "description": "Retrieves appointment records for patientId",
+                "operationId": "getAppointmentsByPatientId",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of appointments matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Store appointment record",
+                "description": "Stores an appointment record",
+                "operationId": "saveAppointment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/appointment.json#/components/schemas/CreateAppointmentRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/appointment/{id}": {
+            "get": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Get appointment record",
+                "description": "Retrieves an appointment record",
+                "operationId": "getAppointmentById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Appointment was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "appointment"
+                ],
+                "summary": "Delete appointment record",
+                "description": "Deletes an appointment record",
+                "operationId": "deleteAppointment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
         "/diagnosis": {
             "post": {
                 "tags": [

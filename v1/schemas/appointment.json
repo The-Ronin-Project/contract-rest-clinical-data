@@ -1,0 +1,153 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+        "title": "",
+        "version": ""
+    },
+    "components": {
+        "schemas": {
+            "Appointment": {
+                "title": "Appointment",
+                "description": "The appointment object",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "startDateTime": {
+                        "type": "number"
+                    },
+                    "endDateTime": {
+                        "type": "number"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppointmentLocation"
+                        }
+                    },
+                    "providers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppointmentProvider"
+                        }
+                    },
+                    "originCreatedAt": {
+                        "type": "number"
+                    },
+                    "originUpdatedAt": {
+                        "type": "number"
+                    },
+                    "rowCreatedAt": {
+                        "type": "number"
+                    },
+                    "rowUpdatedAt": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "patientId",
+                    "status",
+                    "providers",
+                    "locations"
+                ]
+            },
+            "CreateAppointmentRequestBody": {
+                "title": "Input structure for creating an Appointment",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "startDateTime": {
+                        "type": "number"
+                    },
+                    "endDateTime": {
+                        "type": "number"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppointmentLocation"
+                        }
+                    },
+                    "providers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppointmentProvider"
+                        }
+                    },
+                    "originCreatedAt": {
+                        "type": "number"
+                    },
+                    "originUpdatedAt": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "patientId",
+                    "status",
+                    "locations",
+                    "providers",
+                    "originCreatedAt",
+                    "originUpdatedAt"
+                ]
+            },
+            "AppointmentLocation": {
+                "description": "References to linked records",
+                "type": "object",
+                "properties": {
+                    "locationId": {
+                        "type": "string"
+                    },
+                    "locationDisplay": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "locationId",
+                    "locationDisplay"
+                ]
+            },
+            "AppointmentProvider": {
+                "description": "References to linked records",
+                "type": "object",
+                "properties": {
+                    "providerId": {
+                        "type": "string"
+                    },
+                    "providerDisplay": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "providerId",
+                    "providerDisplay"
+                ]
+            }
+        }
+    }
+}
