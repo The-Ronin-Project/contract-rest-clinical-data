@@ -1,0 +1,133 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+        "title": "",
+        "version": ""
+    },
+    "components": {
+        "schemas": {
+            "CancerDiagnosis": {
+                "title": "Cancer Diagnosis",
+                "description": "The diagnosis object",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "versionId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "isPrimary": {
+                        "type": "boolean"
+                    },
+                    "cancerType": {
+                        "type": "string"
+                    },
+                    "diagnosisDate": {
+                        "type": "number"
+                    },
+                    "originCreatedAt": {
+                        "type": "number"
+                    },
+                    "originUpdatedAt": {
+                        "type": "number"
+                    },
+                    "rowCreatedAt": {
+                        "type": "number"
+                    },
+                    "rowUpdatedAt": {
+                        "type": "number"
+                    },
+                    "derivedReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CancerDiagnosisResourceReference"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "versionId",
+                    "isActive",
+                    "isPrimary",
+                    "cancerType",
+                    "derivedReferences"
+                ]
+            },
+            "CreateCancerDiagnosisRequestBody": {
+                "title": "Input structure for creating a CancerDiagnosis",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "versionId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "isPrimary": {
+                        "type": "boolean"
+                    },
+                    "cancerType": {
+                        "type": "string"
+                    },
+                    "diagnosisDate": {
+                        "type": "number"
+                    },
+                    "derivedReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CancerDiagnosis"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "versionId",
+                    "mrn",
+                    "displayName",
+                    "birthSex",
+                    "isDeceased",
+                    "originCreatedAt",
+                    "originUpdatedAt"
+                ]
+            },
+            "CancerDiagnosisResourceReference": {
+                "description": "References to linked records",
+                "type": "object",
+                "properties": {
+                    "resourceType": {
+                        "type": "string"
+                    },
+                    "resourceId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "resourceType",
+                    "resourceId"
+                ]
+            }
+        }
+    }
+}

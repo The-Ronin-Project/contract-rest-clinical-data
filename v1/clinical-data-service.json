@@ -26,6 +26,107 @@
         }
     ],
     "paths": {
+        "/diagnosis": {
+            "post": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Store diagnosis record",
+                "description": "Stores an diagnosis record",
+                "operationId": "saveDiagnosis",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/diagnosis.json#/components/schemas/CreateCancerDiagnosisRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/diagnosis.json#/components/schemas/CancerDiagnosis"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/diagnosis/{id}": {
+            "get": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Get diagnosis record",
+                "description": "Retrieves a diagnosis record",
+                "operationId": "getDiagnosisById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diagnosis was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/diagnosis.json#/components/schemas/CancerDiagnosis"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Delete diagnosis record",
+                "description": "Deletes a diagnosis record",
+                "operationId": "deleteDiagnosis",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
         "/patient": {
             "get": {
                 "tags": [
@@ -78,7 +179,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -260,7 +366,8 @@
                                 }
                             }
                         }
-                    }                },
+                    }
+                },
                 "security": [
                     {
                         "seki": []
