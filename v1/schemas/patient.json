@@ -47,16 +47,20 @@
                         "type": "boolean"
                     },
                     "originCreatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "originUpdatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "rowCreatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "rowUpdatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "required": [
@@ -109,10 +113,12 @@
                         "type": "boolean"
                     },
                     "originCreatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "originUpdatedAt": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "required": [
