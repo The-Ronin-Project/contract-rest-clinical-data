@@ -101,7 +101,8 @@
                         "type": "string"
                     },
                     "birthDate": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "date"
                     },
                     "telecoms": {
                         "type": "array",

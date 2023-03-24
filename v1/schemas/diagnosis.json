@@ -96,12 +96,13 @@
                         "type": "string"
                     },
                     "diagnosisDate": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date"
                     },
                     "derivedReferences": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/CancerDiagnosis"
+                            "$ref": "#/components/schemas/CancerDiagnosisResourceReference"
                         }
                     }
                 },
@@ -109,12 +110,8 @@
                     "id",
                     "tenantId",
                     "versionId",
-                    "mrn",
-                    "displayName",
-                    "birthSex",
-                    "isDeceased",
-                    "originCreatedAt",
-                    "originUpdatedAt"
+                    "patientId",
+                    "cancerType"
                 ]
             },
             "CancerDiagnosisResourceReference": {
