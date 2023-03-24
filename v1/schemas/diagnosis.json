@@ -109,6 +109,7 @@
                     "id",
                     "tenantId",
                     "versionId",
+                    "patientId",
                     "mrn",
                     "displayName",
                     "birthSex",
