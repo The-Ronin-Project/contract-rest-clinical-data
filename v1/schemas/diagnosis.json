@@ -102,7 +102,7 @@
                     "derivedReferences": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/CancerDiagnosis"
+                            "$ref": "#/components/schemas/CancerDiagnosisResourceReference"
                         }
                     }
                 },
