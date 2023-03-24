@@ -111,12 +111,7 @@
                     "tenantId",
                     "versionId",
                     "patientId",
-                    "mrn",
-                    "displayName",
-                    "birthSex",
-                    "isDeceased",
-                    "originCreatedAt",
-                    "originUpdatedAt"
+                    "cancerType"
                 ]
             },
             "CancerDiagnosisResourceReference": {
