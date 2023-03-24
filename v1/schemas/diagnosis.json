@@ -96,7 +96,8 @@
                         "type": "string"
                     },
                     "diagnosisDate": {
-                        "type": "number"
+                        "type": "string",
+                        "format": "date"
                     },
                     "derivedReferences": {
                         "type": "array",
