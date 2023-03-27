@@ -80,25 +80,34 @@
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "tenantId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "versionId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "active": {
                         "type": "boolean"
                     },
                     "mrn": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "displayName": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "birthSex": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "birthDate": {
                         "type": "string",
@@ -123,7 +132,6 @@
                     }
                 },
                 "required": [
-                    "id",
                     "tenantId",
                     "versionId",
                     "mrn",
