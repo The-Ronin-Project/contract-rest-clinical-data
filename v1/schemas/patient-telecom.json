@@ -13,13 +13,16 @@
         "type": "object",
         "properties": {
           "telecomSystem": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "telecomUse": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "telecomValue": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           }
         },
         "required": [

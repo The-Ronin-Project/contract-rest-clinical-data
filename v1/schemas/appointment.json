@@ -75,16 +75,23 @@
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "tenantId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "patientId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "startDateTime": {
                         "type": "string",
@@ -116,7 +123,6 @@
                     }
                 },
                 "required": [
-                    "id",
                     "tenantId",
                     "patientId",
                     "status",
@@ -131,10 +137,12 @@
                 "type": "object",
                 "properties": {
                     "locationId": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "locationDisplay": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     }
                 },
                 "required": [
@@ -147,10 +155,12 @@
                 "type": "object",
                 "properties": {
                     "providerId": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "providerDisplay": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     }
                 },
                 "required": [

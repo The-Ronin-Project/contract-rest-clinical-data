@@ -76,16 +76,23 @@
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "tenantId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "versionId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "patientId": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "isActive": {
                         "type": "boolean"
@@ -94,7 +101,9 @@
                         "type": "boolean"
                     },
                     "cancerType": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                     },
                     "diagnosisDate": {
                         "type": "string",
@@ -108,7 +117,6 @@
                     }
                 },
                 "required": [
-                    "id",
                     "tenantId",
                     "versionId",
                     "patientId",
@@ -120,10 +128,12 @@
                 "type": "object",
                 "properties": {
                     "resourceType": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     },
                     "resourceId": {
-                        "type": "string"
+                        "type": "string",
+                        "maxLength": 255
                     }
                 },
                 "required": [
