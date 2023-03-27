@@ -1,6 +1,6 @@
-# Template Project for REST Contracts
+# Clinical Data Service REST Contract
 
-This repo contains the REST contract for `clinical-data-service`.
+This repo contains the REST contract for `clinical-data-service` (CDS).
 
 # Tools
 
