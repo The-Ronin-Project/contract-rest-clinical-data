@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "1.0.6"
+        "version": "1.0.7"
     },
     "servers": [
         {
@@ -193,6 +193,44 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "schemas/diagnosis.json#/components/schemas/CancerDiagnosis"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "diagnosis"
+                ],
+                "summary": "Query diagnoses by patientId",
+                "description": "Retrieves diagnosis records for patientId",
+                "operationId": "getDiagnosisByPatientId",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of diagnoses matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/diagnosis.json#/components/schemas/CancerDiagnosis"
+                                    }
                                 }
                             }
                         }
