@@ -29,7 +29,7 @@
                     },
                     "effectiveAt": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -44,7 +44,6 @@
                     "diagnosisId",
                     "patientId",
                     "status",
-                    "effectiveAt",
                     "stageGroup",
                     "stageComponents"
                 ]
@@ -70,7 +69,7 @@
                     },
                     "effectiveAt": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -85,7 +84,6 @@
                     "diagnosisId",
                     "patientId",
                     "status",
-                    "effectiveAt",
                     "stageGroup",
                     "stageComponents"
                 ]
