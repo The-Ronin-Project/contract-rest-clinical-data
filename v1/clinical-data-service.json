@@ -27,6 +27,10 @@
         {
             "name": "patient",
             "description": "Relating to patients"
+        },
+        {
+            "name": "staging",
+            "description": "Relating to cancer staging"
         }
     ],
     "paths": {

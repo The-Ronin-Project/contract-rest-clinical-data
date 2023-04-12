@@ -1,0 +1,95 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+        "title": "",
+        "version": ""
+    },
+    "components": {
+        "schemas": {
+            "CancerStaging": {
+                "title": "Cancer Staging",
+                "description": "The staging object",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "diagnosisId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "effectiveAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "stageGroup": {
+                        "type": "string"
+                    },
+                    "stageComponents": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "diagnosisId",
+                    "patientId",
+                    "status",
+                    "effectiveAt",
+                    "stageGroup",
+                    "stageComponents"
+                ]
+            },
+            "CreateCancerStagingRequestBody": {
+                "title": "Input structure for creating a CancerStaging",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "diagnosisId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "effectiveAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "stageGroup": {
+                        "type": "string"
+                    },
+                    "stageComponents": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "diagnosisId",
+                    "patientId",
+                    "status",
+                    "effectiveAt",
+                    "stageGroup",
+                    "stageComponents"
+                ]
+            }
+        }
+    }
+}
