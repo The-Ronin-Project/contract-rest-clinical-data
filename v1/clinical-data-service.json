@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "1.0.7"
+        "version": "1.1.0"
     },
     "servers": [
         {
@@ -548,6 +548,145 @@
                                 }
                             }
                         }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/staging": {
+            "post": {
+                "tags": [
+                    "staging"
+                ],
+                "summary": "Store staging record",
+                "description": "Stores a staging record",
+                "operationId": "saveStaging",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/staging.json#/components/schemas/CreateCancerStagingRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/staging.json#/components/schemas/CancerStaging"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "staging"
+                ],
+                "summary": "Query stagings by patientId",
+                "description": "Retrieves staging records for patientId",
+                "operationId": "getStagingByPatientId",
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of stagings matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/staging.json#/components/schemas/CancerStaging"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/staging/{id}": {
+            "get": {
+                "tags": [
+                    "staging"
+                ],
+                "summary": "Get staging record",
+                "description": "Retrieves a staging record",
+                "operationId": "getStagingById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Staging was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/staging.json#/components/schemas/CancerStaging"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "staging"
+                ],
+                "summary": "Delete staging record",
+                "description": "Deletes a staging record",
+                "operationId": "deleteStaging",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
                     }
                 },
                 "security": [
