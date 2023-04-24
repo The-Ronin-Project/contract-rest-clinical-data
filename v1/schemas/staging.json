@@ -21,6 +21,9 @@
                     "diagnosisId": {
                         "type": "string"
                     },
+                    "conditionId": {
+                        "type": "string"
+                    },
                     "patientId": {
                         "type": "string"
                     },
@@ -28,8 +31,7 @@
                         "type": "string"
                     },
                     "effectiveAt": {
-                        "type": "string",
-                        "format": "date"
+                        "type": "string"
                     },
                     "stageGroup": {
                         "type": "string"
