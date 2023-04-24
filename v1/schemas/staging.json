@@ -44,8 +44,10 @@
                     "id",
                     "tenantId",
                     "diagnosisId",
+                    "conditionId",
                     "patientId",
                     "status",
+                    "effectiveAt",
                     "stageGroup",
                     "stageComponents"
                 ]
@@ -63,6 +65,9 @@
                     "diagnosisId": {
                         "type": "string"
                     },
+                    "conditionId": {
+                        "type": "string"
+                    },
                     "patientId": {
                         "type": "string"
                     },
@@ -70,8 +75,7 @@
                         "type": "string"
                     },
                     "effectiveAt": {
-                        "type": "string",
-                        "format": "date"
+                        "type": "string"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -83,8 +87,10 @@
                 "required": [
                     "tenantId",
                     "diagnosisId",
+                    "conditionId",
                     "patientId",
                     "status",
+                    "effectiveAt",
                     "stageGroup",
                     "stageComponents"
                 ]
