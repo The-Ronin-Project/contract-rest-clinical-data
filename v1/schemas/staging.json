@@ -19,7 +19,8 @@
                         "type": "string"
                     },
                     "conditionId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "the focus id to ehr condition"
                     },
                     "patientId": {
                         "type": "string"
@@ -59,7 +60,8 @@
                         "type": "string"
                     },
                     "conditionId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "the focus id to ehr condition"
                     },
                     "patientId": {
                         "type": "string"
