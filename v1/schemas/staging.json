@@ -18,9 +18,6 @@
                     "tenantId": {
                         "type": "string"
                     },
-                    "diagnosisId": {
-                        "type": "string"
-                    },
                     "conditionId": {
                         "type": "string"
                     },
@@ -43,7 +40,6 @@
                 "required": [
                     "id",
                     "tenantId",
-                    "diagnosisId",
                     "conditionId",
                     "patientId",
                     "status",
@@ -60,9 +56,6 @@
                         "type": "string"
                     },
                     "tenantId": {
-                        "type": "string"
-                    },
-                    "diagnosisId": {
                         "type": "string"
                     },
                     "conditionId": {
@@ -86,7 +79,6 @@
                 },
                 "required": [
                     "tenantId",
-                    "diagnosisId",
                     "conditionId",
                     "patientId",
                     "status",
