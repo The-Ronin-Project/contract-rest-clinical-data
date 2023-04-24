@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "1.1.1"
+        "version": "1.1.2"
     },
     "servers": [
         {
@@ -19,6 +19,10 @@
         {
             "name": "appointment",
             "description": "Relating to appointments"
+        },
+        {
+            "name": "condition",
+            "description": "Relating to conditions"
         },
         {
             "name": "diagnosis",
@@ -151,6 +155,145 @@
                 "summary": "Delete appointment record",
                 "description": "Deletes an appointment record",
                 "operationId": "deleteAppointment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/condition": {
+            "get": {
+                "tags": [
+                    "condition"
+                ],
+                "summary": "Query conditions by condition ids",
+                "description": "Retrieves condition records by condition ids",
+                "operationId": "getConditionsByConditionId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of conditions matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/condition.json#/components/schemas/Condition"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "condition"
+                ],
+                "summary": "Store condition record",
+                "description": "Stores a condition record",
+                "operationId": "saveCondition",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/condition.json#/components/schemas/CreateConditionRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/condition.json#/components/schemas/Condition"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            }
+        },
+        "/condition/{id}": {
+            "get": {
+                "tags": [
+                    "condition"
+                ],
+                "summary": "Get condition record",
+                "description": "Retrieves a condition record",
+                "operationId": "getConditionById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Condition was successfully retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/condition.json#/components/schemas/Condition"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "seki": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "condition"
+                ],
+                "summary": "Delete condition record",
+                "description": "Deletes a condition record",
+                "operationId": "deleteCondition",
                 "parameters": [
                     {
                         "name": "id",

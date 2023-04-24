@@ -1,0 +1,145 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Condition": {
+        "title": "Condition",
+        "description": "The condition object",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "versionId": {
+            "type": "string"
+          },
+          "patientId": {
+            "type": "string"
+          },
+          "categoryCode": {
+            "type": "string"
+          },
+          "verificationStatus": {
+            "type": "string"
+          },
+          "clinicalStatus": {
+            "type": "string"
+          },
+          "codeText": {
+            "type": "string"
+          },
+          "onsetDatetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "onsetPeriodStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "onsetPeriodEnd": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "originCreatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "originUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rowCreatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rowUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "tenantId",
+          "versionId",
+          "patientId",
+          "categoryCode",
+          "verificationStatus",
+          "clinicalStatus",
+          "codeText",
+          "onsetDatetime",
+          "onsetPeriodStart",
+          "onsetPeriodEnd"
+        ]
+      },
+      "CreateConditionRequestBody": {
+        "title": "Input structure for creating a Condition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "tenantId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "versionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "patientId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "categoryCode": {
+            "type": "string"
+          },
+          "verificationStatus": {
+            "type": "string"
+          },
+          "clinicalStatus": {
+            "type": "string"
+          },
+          "codeText": {
+            "type": "string"
+          },
+          "onsetDatetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "onsetPeriodStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "onsetPeriodEnd": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "tenantId",
+          "versionId",
+          "patientId",
+          "categoryCode",
+          "verificationStatus",
+          "clinicalStatus",
+          "codeText",
+          "onsetDatetime",
+          "onsetPeriodStart",
+          "onsetPeriodEnd"
+        ]
+      }
+    }
+  }
+}
