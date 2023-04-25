@@ -182,14 +182,22 @@
                 "tags": [
                     "condition"
                 ],
-                "summary": "Query conditions by condition ids",
-                "description": "Retrieves condition records by condition ids",
-                "operationId": "getConditionsByConditionId",
+                "summary": "Query conditions by patientId and conditionId",
+                "description": "Retrieves condition records by patientId and condition ids",
+                "operationId": "getConditionsByPatientId",
                 "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
                     {
                         "name": "id",
                         "in": "query",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }

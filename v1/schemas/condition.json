@@ -37,16 +37,13 @@
             "type": "string"
           },
           "onsetDatetime": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "onsetPeriodStart": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "onsetPeriodEnd": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "rowCreatedAt": {
             "type": "string",
@@ -107,16 +104,13 @@
             "type": "string"
           },
           "onsetDatetime": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "onsetPeriodStart": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "onsetPeriodEnd": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         "required": [
