@@ -18,7 +18,7 @@
           "tenantId": {
             "type": "string"
           },
-          "versionId": {
+          "resourceVersion": {
             "type": "string"
           },
           "patientId": {
@@ -48,14 +48,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "originCreatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "originUpdatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
           "rowCreatedAt": {
             "type": "string",
             "format": "date-time"
@@ -68,7 +60,7 @@
         "required": [
           "id",
           "tenantId",
-          "versionId",
+          "resourceVersion",
           "patientId",
           "categoryCode",
           "verificationStatus",
