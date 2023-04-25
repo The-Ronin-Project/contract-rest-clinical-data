@@ -92,25 +92,37 @@
             "maxLength": 255
           },
           "categoryCode": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           },
           "verificationStatus": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           },
           "clinicalStatus": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           },
           "codeText": {
             "type": "string"
           },
           "onsetDatetime": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           },
           "onsetPeriodStart": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           },
           "onsetPeriodEnd": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           }
         },
         "required": [
