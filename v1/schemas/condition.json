@@ -84,7 +84,7 @@
             "minLength": 1,
             "maxLength": 255
           },
-          "versionId": {
+          "resourceVersion": {
             "type": "string",
             "minLength": 1,
             "maxLength": 255
@@ -121,7 +121,7 @@
         },
         "required": [
           "tenantId",
-          "versionId",
+          "resourceVersion",
           "patientId",
           "categoryCode",
           "verificationStatus",
