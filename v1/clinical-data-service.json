@@ -183,7 +183,7 @@
                     "condition"
                 ],
                 "summary": "Query conditions by patientId and conditionId",
-                "description": "Retrieves condition records by patientId and condition ids",
+                "description": "Retrieves condition records by patientId and a comma-delimited string of conditionIds",
                 "operationId": "getConditionsByPatientId",
                 "parameters": [
                     {
