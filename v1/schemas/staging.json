@@ -18,9 +18,8 @@
                     "tenantId": {
                         "type": "string"
                     },
-                    "conditionId": {
-                        "type": "string",
-                        "description": "the focus id to ehr condition"
+                    "diagnosisId": {
+                        "type": "string"
                     },
                     "patientId": {
                         "type": "string"
@@ -29,7 +28,8 @@
                         "type": "string"
                     },
                     "effectiveAt": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "date"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -41,10 +41,9 @@
                 "required": [
                     "id",
                     "tenantId",
-                    "conditionId",
+                    "diagnosisId",
                     "patientId",
                     "status",
-                    "effectiveAt",
                     "stageGroup",
                     "stageComponents"
                 ]
@@ -59,9 +58,8 @@
                     "tenantId": {
                         "type": "string"
                     },
-                    "conditionId": {
-                        "type": "string",
-                        "description": "the focus id to ehr condition"
+                    "diagnosisId": {
+                        "type": "string"
                     },
                     "patientId": {
                         "type": "string"
@@ -70,7 +68,8 @@
                         "type": "string"
                     },
                     "effectiveAt": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "date"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -81,10 +80,9 @@
                 },
                 "required": [
                     "tenantId",
-                    "conditionId",
+                    "diagnosisId",
                     "patientId",
                     "status",
-                    "effectiveAt",
                     "stageGroup",
                     "stageComponents"
                 ]
