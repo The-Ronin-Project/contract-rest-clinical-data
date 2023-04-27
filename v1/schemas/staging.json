@@ -21,6 +21,10 @@
                     "diagnosisId": {
                         "type": "string"
                     },
+                    "conditionId": {
+                        "type": "string",
+                        "description": "the focus id to ehr condition"
+                    },
                     "patientId": {
                         "type": "string"
                     },
@@ -28,8 +32,7 @@
                         "type": "string"
                     },
                     "effectiveAt": {
-                        "type": "string",
-                        "format": "date"
+                        "type": "string"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -41,7 +44,7 @@
                 "required": [
                     "id",
                     "tenantId",
-                    "diagnosisId",
+                    "conditionId",
                     "patientId",
                     "status",
                     "stageGroup",
@@ -61,6 +64,10 @@
                     "diagnosisId": {
                         "type": "string"
                     },
+                    "conditionId": {
+                        "type": "string",
+                        "description": "the focus id to ehr condition"
+                    },
                     "patientId": {
                         "type": "string"
                     },
@@ -68,8 +75,7 @@
                         "type": "string"
                     },
                     "effectiveAt": {
-                        "type": "string",
-                        "format": "date"
+                        "type": "string"
                     },
                     "stageGroup": {
                         "type": "string"
@@ -80,7 +86,7 @@
                 },
                 "required": [
                     "tenantId",
-                    "diagnosisId",
+                    "conditionId",
                     "patientId",
                     "status",
                     "stageGroup",
