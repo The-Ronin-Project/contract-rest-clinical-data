@@ -98,12 +98,10 @@
           },
           "verificationStatus": {
             "type": "string",
-            "minLength": 1,
             "maxLength": 255
           },
           "clinicalStatus": {
             "type": "string",
-            "minLength": 1,
             "maxLength": 255
           },
           "codeText": {
@@ -111,17 +109,14 @@
           },
           "onsetDatetime": {
             "type": "string",
-            "minLength": 1,
             "maxLength": 255
           },
           "onsetPeriodStart": {
             "type": "string",
-            "minLength": 1,
             "maxLength": 255
           },
           "onsetPeriodEnd": {
             "type": "string",
-            "minLength": 1,
             "maxLength": 255
           }
         },
