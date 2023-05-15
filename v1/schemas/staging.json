@@ -18,9 +18,6 @@
                     "tenantId": {
                         "type": "string"
                     },
-                    "diagnosisId": {
-                        "type": "string"
-                    },
                     "conditionId": {
                         "type": "string",
                         "description": "the focus id to ehr condition"
@@ -59,9 +56,6 @@
                         "type": "string"
                     },
                     "tenantId": {
-                        "type": "string"
-                    },
-                    "diagnosisId": {
                         "type": "string"
                     },
                     "conditionId": {
