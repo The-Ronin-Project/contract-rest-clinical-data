@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "2.0.0"
+        "version": "2.1.0"
     },
     "servers": [
         {
@@ -23,10 +23,6 @@
         {
             "name": "condition",
             "description": "Relating to conditions"
-        },
-        {
-            "name": "diagnosis",
-            "description": "Relating to cancer diagnosis"
         },
         {
             "name": "patient",
@@ -45,6 +41,7 @@
                 ],
                 "summary": "Query appointments by patientId",
                 "description": "Retrieves appointment records for patientId",
+                "deprecated": true,
                 "operationId": "getAppointmentsByPatientId",
                 "parameters": [
                     {
@@ -83,6 +80,7 @@
                 ],
                 "summary": "Store appointment record",
                 "description": "Stores an appointment record",
+                "deprecated": true,
                 "operationId": "saveAppointment",
                 "requestBody": {
                     "content": {
@@ -119,6 +117,7 @@
                 ],
                 "summary": "Get appointment record",
                 "description": "Retrieves an appointment record",
+                "deprecated": true,
                 "operationId": "getAppointmentById",
                 "parameters": [
                     {
@@ -154,6 +153,7 @@
                 ],
                 "summary": "Delete appointment record",
                 "description": "Deletes an appointment record",
+                "deprecated": true,
                 "operationId": "deleteAppointment",
                 "parameters": [
                     {
@@ -715,6 +715,89 @@
                     }
                 ]
             }
+        },
+
+        "/v1/tenants/{tenantId}/patients/{patientId}/appointments": {
+            "get": {
+                "tags": ["appointment"],
+                "summary": "Appointments for a patient",
+                "description": "Retrieves appointment records for a patient",
+                "operationId": "getPatientAppointments",
+                "parameters": [
+                    {"$ref": "#/components/parameters/pathTenantId"},
+                    {"$ref": "#/components/parameters/pathPatientId"}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The patient's appointments",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {"description":  "Unauthorized"}
+                },
+                "security": [{"seki": []}]
+            }
+        },
+        "/v1/tenants/{tenantId}/patients/{patientId}/appointments/{appointmentId}": {
+            "post": {
+                "tags": ["appointment"],
+                "summary": "Create or update an appointment",
+                "description": "Create or update an appointment",
+                "operationId": "savePatientAppointment",
+                "parameters": [
+                    {"$ref": "#/components/parameters/pathTenantId"},
+                    {"$ref": "#/components/parameters/pathPatientId"},
+                    {"$ref": "#/components/parameters/pathAppointmentId"}
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/appointment.json#/components/schemas/SaveAppointmentRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/appointment.json#/components/schemas/Appointment"
+                                }
+                            }
+                        }
+                    },
+                    "400": {"description":  "Bad Request"},
+                    "401": {"description":  "Unauthorized"}
+                },
+                "security": [{"seki": []}]
+            },
+            "delete": {
+                "tags": ["appointment"],
+                "summary": "Delete an appointment",
+                "description": "Delete the specified appointment",
+                "operationId": "deletePatientAppointment",
+                "parameters": [
+                    {"$ref": "#/components/parameters/pathTenantId"},
+                    {"$ref": "#/components/parameters/pathPatientId"},
+                    {"$ref": "#/components/parameters/pathAppointmentId"}
+                ],
+                "responses": {
+                    "204": {"description": "Successfully deleted"},
+                    "401": {"description":  "Unauthorized"}
+                },
+                "security": [{"seki": []}]
+            }
         }
     },
     "components": {
@@ -723,6 +806,29 @@
                 "type": "http",
                 "scheme": "bearer",
                 "bearerFormat": "JWT"
+            }
+        },
+        "parameters": {
+            "pathTenantId": {
+                "name": "tenantId",
+                "in": "path",
+                "schema": {"$ref": "schemas/common-types.json#/components/schemas/TenantId"},
+                "example": "apposnd",
+                "required": true
+            },
+            "pathPatientId": {
+                "name": "patientId",
+                "in": "path",
+                "schema": {"$ref": "schemas/common-types.json#/components/schemas/PatientId"},
+                "example": "seedPatientId01",
+                "required": true
+            },
+            "pathAppointmentId": {
+                "name": "appointmentId",
+                "in": "path",
+                "schema": {"type":  "string"},
+                "example": "seedappt03",
+                "required": true
             }
         }
     }

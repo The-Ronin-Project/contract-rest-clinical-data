@@ -73,6 +73,7 @@
             "CreateAppointmentRequestBody": {
                 "title": "Input structure for creating an Appointment",
                 "type": "object",
+                "deprecated": true,
                 "properties": {
                     "id": {
                         "type": "string",
@@ -125,6 +126,52 @@
                 "required": [
                     "tenantId",
                     "patientId",
+                    "status",
+                    "locations",
+                    "providers",
+                    "originCreatedAt",
+                    "originUpdatedAt"
+                ]
+            },
+            "SaveAppointmentRequestBody": {
+                "description": "Request body for creating or updating an appointment",
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "startDateTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endDateTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppointmentLocation"
+                        }
+                    },
+                    "providers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppointmentProvider"
+                        }
+                    },
+                    "originCreatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "originUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
                     "status",
                     "locations",
                     "providers",

@@ -7,6 +7,13 @@
     },
     "components": {
         "schemas": {
+            "TenantId": {
+                "title": "TenantId",
+                "description": "A tenant id",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "PatientId": {
                 "title": "PatientId",
                 "description": "A patient ID",
