@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "2.1.1"
+        "version": "2.2.0"
     },
     "servers": [
         {
@@ -185,6 +185,7 @@
                 "summary": "Query conditions by patientId and conditionId",
                 "description": "Retrieves condition records by patientId and a comma-delimited string of conditionIds",
                 "operationId": "getConditionsByPatientId",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "patientId",
@@ -235,6 +236,7 @@
                 "summary": "Store condition record",
                 "description": "Stores a condition record",
                 "operationId": "saveCondition",
+                "deprecated": true,
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -271,6 +273,7 @@
                 "summary": "Get condition record",
                 "description": "Retrieves a condition record",
                 "operationId": "getConditionById",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "id",
@@ -306,6 +309,7 @@
                 "summary": "Delete condition record",
                 "description": "Deletes a condition record",
                 "operationId": "deleteCondition",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "id",
@@ -803,6 +807,109 @@
                     "401": {"description": "Unauthorized"},
                     "403": {"description": "Forbidden"},
                     "404": {"description": "Not Found"}
+                },
+                "security": [{"seki": []}]
+            }
+        },
+
+        "/v1/tenants/{tenantId}/patients/{patientId}/conditions": {
+            "get": {
+                "tags": ["condition"],
+                "summary": "Get the conditions for a patient",
+                "description": "Get the conditions for a patient, optionally filtered by condition ids",
+                "operationId": "getPatientConditions",
+                "parameters": [
+                    {"$ref": "#/components/parameters/pathTenantId"},
+                    {"$ref": "#/components/parameters/pathPatientId"},
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of conditions matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/condition.json#/components/schemas/Condition"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {"description": "Unauthorized"},
+                    "403": {"description": "Forbidden"}
+                },
+                "security": [{"seki": []}]
+            },
+            "post": {
+                "tags": ["condition"],
+                "summary": "Save a condition",
+                "description": "Saves a condition. If an id is provided, an existing condition will be updated if there is one, or created if not. In the case that the id isn't provided, a new condition will always be created with a new id.",
+                "operationId": "savePatientCondition",
+                "parameters": [
+                    {"$ref": "#/components/parameters/pathTenantId"},
+                    {"$ref": "#/components/parameters/pathPatientId"}
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/condition.json#/components/schemas/SavePatientConditionRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/condition.json#/components/schemas/Condition"
+                                }
+                            }
+                        }
+                    },
+                    "400": {"description": "Bad Request"},
+                    "401": {"description": "Unauthorized"},
+                    "403": {"description": "Forbidden"}
+                },
+                "security": [{"seki": []}]
+            }
+        },
+        "/v1/tenants/{tenantId}/patients/{patientId}/conditions/{conditionId}": {
+            "delete": {
+                "tags": ["condition"],
+                "summary": "Delete a condition",
+                "description": "Deletes a condition record",
+                "operationId": "deletePatientCondition",
+                "parameters": [
+                    {"$ref": "#/components/parameters/pathTenantId"},
+                    {"$ref": "#/components/parameters/pathPatientId"},
+                    {
+                        "name": "conditionId",
+                        "description": "The id of the condition to delete",
+                        "in": "path",
+                        "schema": {"type":  "string"},
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {"description": "Successfully deleted"},
+                    "401": {"description": "Unauthorized"},
+                    "403": {"description": "Forbidden"},
+                    "404": {"description": "Not found"}
                 },
                 "security": [{"seki": []}]
             }

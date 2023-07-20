@@ -132,6 +132,60 @@
           "onsetPeriodStart",
           "onsetPeriodEnd"
         ]
+      },
+      "SavePatientConditionRequestBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "The id of the condition, or null if an id should be generated"
+          },
+          "categoryCode": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "verificationStatus": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "clinicalStatus": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "codeText": {
+            "type": "string"
+          },
+          "onsetDatetime": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "onsetPeriodStart": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "onsetPeriodEnd": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "resourceVersion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "resourceVersion",
+          "categoryCode",
+          "verificationStatus",
+          "clinicalStatus",
+          "codeText",
+          "onsetDatetime",
+          "onsetPeriodStart",
+          "onsetPeriodEnd"
+        ]
       }
     }
   }
