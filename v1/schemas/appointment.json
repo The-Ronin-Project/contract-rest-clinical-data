@@ -137,6 +137,12 @@
                 "description": "Request body for creating or updating an appointment",
                 "type": "object",
                 "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "The id of the appointment. If not provided, a new id will be generated."
+                    },
                     "status": {
                         "type": "string",
                         "minLength": 1,
