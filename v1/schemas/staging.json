@@ -86,6 +86,37 @@
                     "stageGroup",
                     "stageComponents"
                 ]
+            },
+            "SaveCancerStagingRequestBody": {
+                "title": "Input structure for creating or updating a CancerStaging",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "conditionId": {
+                        "type": "string",
+                        "description": "the focus id to ehr condition"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "effectiveAt": {
+                        "type": "string"
+                    },
+                    "stageGroup": {
+                        "type": "string"
+                    },
+                    "stageComponents": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conditionId",
+                    "status",
+                    "stageGroup",
+                    "stageComponents"
+                ]
             }
         }
     }

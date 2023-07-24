@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "2.2.0"
+        "version": "2.3.0"
     },
     "servers": [
         {
@@ -340,6 +340,7 @@
                 "summary": "Searches for patients by name or mrn",
                 "description": "Get a list of patients matching a search parameter",
                 "operationId": "searchPatients",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "q",
@@ -399,6 +400,7 @@
                 "summary": "Store patient record",
                 "description": "Stores an patient record",
                 "operationId": "addPatient",
+                "deprecated": true,
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -455,6 +457,7 @@
                 "summary": "Get patient record",
                 "description": "Retrieves a patient record",
                 "operationId": "getPatientById",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "patientId",
@@ -521,6 +524,7 @@
                 "summary": "Delete patient record",
                 "description": "Deletes a patient record",
                 "operationId": "deletePatient",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "patientId",
@@ -589,6 +593,7 @@
                 "summary": "Store staging record",
                 "description": "Stores a staging record",
                 "operationId": "saveStaging",
+                "deprecated": true,
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -623,6 +628,7 @@
                 "summary": "Query stagings by patientId",
                 "description": "Retrieves staging records for patientId",
                 "operationId": "getStagingByPatientId",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "patientId",
@@ -663,6 +669,7 @@
                 "summary": "Get staging record",
                 "description": "Retrieves a staging record",
                 "operationId": "getStagingById",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "id",
@@ -698,6 +705,7 @@
                 "summary": "Delete staging record",
                 "description": "Deletes a staging record",
                 "operationId": "deleteStaging",
+                "deprecated": true,
                 "parameters": [
                     {
                         "name": "id",
@@ -745,8 +753,22 @@
                             }
                         }
                     },
-                    "401": {"description": "Unauthorized"},
-                    "403": {"description": "Forbidden"}
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
                 },
                 "security": [{"seki": []}]
             },
@@ -769,7 +791,7 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Successful operation",
                         "content": {
                             "application/json": {
@@ -779,9 +801,30 @@
                             }
                         }
                     },
-                    "400": {"description": "Bad Request"},
-                    "401": {"description": "Unauthorized"},
-                    "403": {"description": "Forbidden"}
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
                 },
                 "security": [{"seki": []}]
             }
@@ -804,9 +847,30 @@
                 ],
                 "responses": {
                     "204": {"description": "Successfully deleted"},
-                    "401": {"description": "Unauthorized"},
-                    "403": {"description": "Forbidden"},
-                    "404": {"description": "Not Found"}
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
                 },
                 "security": [{"seki": []}]
             }
@@ -847,8 +911,22 @@
                             }
                         }
                     },
-                    "401": {"description": "Unauthorized"},
-                    "403": {"description": "Forbidden"}
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
                 },
                 "security": [{"seki": []}]
             },
@@ -871,7 +949,7 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Successful operation",
                         "content": {
                             "application/json": {
@@ -881,9 +959,30 @@
                             }
                         }
                     },
-                    "400": {"description": "Bad Request"},
-                    "401": {"description": "Unauthorized"},
-                    "403": {"description": "Forbidden"}
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
                 },
                 "security": [{"seki": []}]
             }
@@ -907,14 +1006,391 @@
                 ],
                 "responses": {
                     "204": {"description": "Successfully deleted"},
-                    "401": {"description": "Unauthorized"},
-                    "403": {"description": "Forbidden"},
-                    "404": {"description": "Not found"}
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+        },
+
+        "/v1/tenants/{tenantId}/patients": {
+            "parameters": [
+                {"$ref":  "#/components/parameters/pathTenantId"}
+            ],
+            "get": {
+                "tags": ["patient"],
+                "summary": "Searches for patients by name or mrn",
+                "description": "Get a list of patients matching a search parameter",
+                "operationId": "searchTenantPatients",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of patients matching the search parameter",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {"$ref": "schemas/patient.json#/components/schemas/Patient"}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            },
+            "post": {
+                "tags": ["patient"],
+                "summary": "Save patient record",
+                "description": "Saves a patient record. If the id is provided, then an attempt is made to update an existing patient or create one if it does not exist. If the id is not provided, then a new patient is always created with a new id.",
+                "operationId": "savePatient",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {"$ref": "schemas/patient.json#/components/schemas/SavePatientRequestBody"}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/patient.json#/components/schemas/Patient"}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+        },
+        "/v1/tenants/{tenantId}/patients/{patientId}": {
+            "get": {
+                "tags": ["patient"],
+                "summary": "Get patient record",
+                "description": "Retrieves a patient record",
+                "operationId": "getPatient",
+                "parameters": [
+                    {"$ref":  "#/components/parameters/pathTenantId"},
+                    {"$ref":  "#/components/parameters/pathPatientId"}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The patient",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/patient.json#/components/schemas/Patient"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient record was not found with the given id",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            },
+            "delete": {
+                "tags": ["patient"],
+                "summary": "Delete patient record",
+                "description": "Deletes a patient record",
+                "operationId": "deletePatientById",
+                "parameters": [
+                    {"$ref":  "#/components/parameters/pathTenantId"},
+                    {"$ref":  "#/components/parameters/pathPatientId"}
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Operation successful"
+                    },
+                    "400": {
+                        "description": "An invalid request was made",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The user was not authorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient record was not found with the given id",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+        },
+
+        "/v1/tenants/{tenantId}/patients/{patientId}/cancer-staging": {
+            "parameters": [
+                {"$ref":  "#/components/parameters/pathTenantId"},
+                {"$ref":  "#/components/parameters/pathPatientId"}
+            ],
+            "post": {
+                "tags": ["staging"],
+                "summary": "Create or update staging record",
+                "description": "If the id is provided, a corresponding record will be updated if it exists or created otherwise. When an id is not provided, a new record is always created with a new id.",
+                "operationId": "saveCancerStaging",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "schemas/staging.json#/components/schemas/SaveCancerStagingRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/staging.json#/components/schemas/CancerStaging"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            },
+            "get": {
+                "tags": ["staging"],
+                "summary": "Get stagings for a patient",
+                "description": "Get stagings for a patient",
+                "operationId": "getCancerStagings",
+                "responses": {
+                    "200": {
+                        "description": "Stagings for the specified patient",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/staging.json#/components/schemas/CancerStaging"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+        },
+        "/v1/tenants/{tenantId}/patients/{patientId}/cancer-staging/{stagingId}": {
+            "parameters": [
+                {"$ref":  "#/components/parameters/pathTenantId"},
+                {"$ref":  "#/components/parameters/pathPatientId"},
+                {
+                    "name": "stagingId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "delete": {
+                "tags": ["staging"],
+                "summary": "Delete staging record",
+                "description": "Deletes a staging record",
+                "operationId": "deleteCancerStaging",
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
                 },
                 "security": [{"seki": []}]
             }
         }
     },
+
     "components": {
         "securitySchemes": {
             "seki": {

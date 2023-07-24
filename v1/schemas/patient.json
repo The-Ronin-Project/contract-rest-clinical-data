@@ -151,6 +151,68 @@
                     }
                 },
                 "required": ["id"]
+            },
+            "SavePatientRequestBody": {
+                "title": "Input structure for creating or updating a patient",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "versionId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "mrn": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "birthSex": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "birthDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "telecoms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "patient-telecom.json#/components/schemas/PatientTelecom"
+                        }
+                    },
+                    "isDeceased": {
+                        "type": "boolean"
+                    },
+                    "originCreatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "originUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "versionId",
+                    "mrn",
+                    "displayName",
+                    "birthSex",
+                    "isDeceased",
+                    "active",
+                    "originCreatedAt",
+                    "originUpdatedAt"
+                ]
             }
         }
     }
