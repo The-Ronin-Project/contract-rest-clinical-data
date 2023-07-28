@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "2.3.0"
+        "version": "2.3.1"
     },
     "servers": [
         {
@@ -1241,7 +1241,7 @@
             }
         },
 
-        "/v1/tenants/{tenantId}/patients/{patientId}/cancer-staging": {
+        "/v1/tenants/{tenantId}/patients/{patientId}/cancer-stagings": {
             "parameters": [
                 {"$ref":  "#/components/parameters/pathTenantId"},
                 {"$ref":  "#/components/parameters/pathPatientId"}
@@ -1339,7 +1339,7 @@
                 "security": [{"seki": []}]
             }
         },
-        "/v1/tenants/{tenantId}/patients/{patientId}/cancer-staging/{stagingId}": {
+        "/v1/tenants/{tenantId}/patients/{patientId}/cancer-stagings/{stagingId}": {
             "parameters": [
                 {"$ref":  "#/components/parameters/pathTenantId"},
                 {"$ref":  "#/components/parameters/pathPatientId"},
