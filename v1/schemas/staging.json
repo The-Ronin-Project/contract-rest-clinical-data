@@ -32,9 +32,14 @@
                         "type": "string"
                     },
                     "stageGroup": {
-                        "type": "string"
+                        "type": "string",
+                        "deprecated": true
                     },
                     "stageComponents": {
+                        "type": "string",
+                        "deprecated": true
+                    },
+                    "combinedStageValue": {
                         "type": "string"
                     }
                 },
@@ -44,8 +49,7 @@
                     "conditionId",
                     "patientId",
                     "status",
-                    "stageGroup",
-                    "stageComponents"
+                    "combinedStageValue"
                 ]
             },
             "CreateCancerStagingRequestBody": {
@@ -72,9 +76,14 @@
                         "type": "string"
                     },
                     "stageGroup": {
-                        "type": "string"
+                        "type": "string",
+                        "deprecated": true
                     },
                     "stageComponents": {
+                        "type": "string",
+                        "deprecated": true
+                    },
+                    "combinedStageValue": {
                         "type": "string"
                     }
                 },
@@ -83,8 +92,7 @@
                     "conditionId",
                     "patientId",
                     "status",
-                    "stageGroup",
-                    "stageComponents"
+                    "combinedStageValue"
                 ]
             },
             "SaveCancerStagingRequestBody": {
@@ -105,17 +113,21 @@
                         "type": "string"
                     },
                     "stageGroup": {
-                        "type": "string"
+                        "type": "string",
+                        "deprecated": true
                     },
                     "stageComponents": {
+                        "type": "string",
+                        "deprecated": true
+                    },
+                    "combinedStageValue": {
                         "type": "string"
                     }
                 },
                 "required": [
                     "conditionId",
                     "status",
-                    "stageGroup",
-                    "stageComponents"
+                    "combinedStageValue"
                 ]
             }
         }
