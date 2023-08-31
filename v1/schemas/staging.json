@@ -31,14 +31,6 @@
                     "effectiveAt": {
                         "type": "string"
                     },
-                    "stageGroup": {
-                        "type": "string",
-                        "deprecated": true
-                    },
-                    "stageComponents": {
-                        "type": "string",
-                        "deprecated": true
-                    },
                     "combinedStageValue": {
                         "type": "string"
                     }
@@ -75,14 +67,6 @@
                     "effectiveAt": {
                         "type": "string"
                     },
-                    "stageGroup": {
-                        "type": "string",
-                        "deprecated": true
-                    },
-                    "stageComponents": {
-                        "type": "string",
-                        "deprecated": true
-                    },
                     "combinedStageValue": {
                         "type": "string"
                     }
@@ -111,14 +95,6 @@
                     },
                     "effectiveAt": {
                         "type": "string"
-                    },
-                    "stageGroup": {
-                        "type": "string",
-                        "deprecated": true
-                    },
-                    "stageComponents": {
-                        "type": "string",
-                        "deprecated": true
                     },
                     "combinedStageValue": {
                         "type": "string"
