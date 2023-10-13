@@ -31,6 +31,10 @@
         {
             "name": "staging",
             "description": "Relating to cancer staging"
+        },
+        {
+            "name": "treatment plan",
+            "description": "Relating to treatment plan"
         }
     ],
     "paths": {
@@ -1388,7 +1392,166 @@
                 },
                 "security": [{"seki": []}]
             }
+        },
+        "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans?status={statusValue}": {
+            "get": {
+                "tags": ["treatment plan"],
+                "summary": "Get Patient Treatment Plan",
+                "description": "Retrieves a Treatment Plan",
+                "operationId": "getTreatmentPlan",
+                "parameters": [
+                    {"$ref":  "#/components/parameters/pathTenantId"},
+                    {"$ref":  "#/components/parameters/pathPatientId"},
+                    {
+                        "name": "statusValue",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The treatment plan",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/treatment-plan.json#/components/schemas/TreatmentPlan"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "The treatment plan was not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+            
+        },
+
+        "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans": {
+            "post": {
+                "tags": ["treatment plan"],
+                "summary": "Create or update a treatment plan",
+                "description": "Create or update a Treatment Plan",
+                "operationId": "saveTreatmentPlan",
+                "parameters": [
+                    {"$ref":  "#/components/parameters/pathTenantId"},
+                    {"$ref":  "#/components/parameters/pathPatientId"}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The treatment plan",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/treatment-plan.json#/components/schemas/TreatmentPlan"}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "The treatment plan was not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+            
+        },
+        "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans/{treatmentPlanId}": {
+            "parameters": [
+                {"$ref":  "#/components/parameters/pathTenantId"},
+                {"$ref":  "#/components/parameters/pathPatientId"},
+                {
+                    "name": "treamentPlanId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "delete": {
+                "tags": ["treatment plan"],
+                "summary": "Delete a treatment plan",
+                "description": "Deletes a treament plan",
+                "operationId": "deleteTreatmentPlan",
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    }
+                },
+                "security": [{"seki": []}]
+            }
+
+
+
         }
+
     },
 
     "components": {

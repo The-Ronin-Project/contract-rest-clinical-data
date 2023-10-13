@@ -1,0 +1,196 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+        "title": "",
+        "version": ""
+    },
+    "components": {
+        "schemas": {
+            "TreatmentPlan": {
+                "title": "Treatment Plan",
+                "description": "The treatment plan object",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "patientId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "cycleNumber": {
+                        "type": "string"
+                    },
+                    "startDateTime": {
+                        "type": "string"
+                    },
+                    "lastDoseDateTime": {
+                        "type": "string"
+                    },
+                    "rowCreatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "rowUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "patientId",
+                    "status",
+                    "displayName",
+                    "rowCreatedAt",
+                    "rowUpdatedAt"
+                ]
+            },
+            "TreatmentPlanRequestBody": {
+                "title": "Input structure for creating a Treatment Plan",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "tenantId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "patientId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "status": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "cycleNumber": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "startDateTime": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "lastDoseDateTime": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "rowCreatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "rowUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "patientId",
+                    "status",
+                    "displayName",
+                    "rowCreatedAt",
+                    "rowUpdatedAt"
+                ]
+            },
+            "CreateTreatmentPlanResponseBody": {
+                "title": "Response for successful create",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": ["id"]
+            },
+            "SaveTreatmentPlanRequestBody": {
+                "title": "Input structure for creating or updating a treatment plan",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "tenantId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "patientId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "status": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "cycleNumber": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "startDateTime": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "lastDoseDateTime": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    },
+                    "rowCreatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "rowUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tenantId",
+                    "patientId",
+                    "status",
+                    "displayName",
+                    "rowCreatedAt",
+                    "rowUpdatedAt"
+                ]
+            }
+        }
+    }
+}
