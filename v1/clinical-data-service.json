@@ -1413,12 +1413,17 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The treatment plan",
+                        "description": "Collection of treatment plans",
                         "content": {
                             "application/json": {
-                                "schema": {"$ref": "schemas/treatment-plan.json#/components/schemas/TreatmentPlan"}
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "schemas/treatment-plan.json#/components/schemas/TreatmentPlan"
+                                    }
+                                }
                             }
-                        }
+                        }  
                     },
                     "401": {
                         "description": "Unauthorized",
@@ -1458,13 +1463,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The treatment plan",
+                        "description": "Success",
                         "content": {
                             "application/json": {
                                 "schema": {"$ref": "schemas/treatment-plan.json#/components/schemas/TreatmentPlan"}
                             }
                         }
                     },
+                    
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
+                            }
+                        }
+                    },
+
                     "401": {
                         "description": "Unauthorized",
                         "content": {
@@ -1475,14 +1490,6 @@
                     },
                     "403": {
                         "description": "Forbidden",
-                        "content": {
-                            "application/json": {
-                                "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "The treatment plan was not found",
                         "content": {
                             "application/json": {
                                 "schema": {"$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"}
