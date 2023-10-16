@@ -8,7 +8,7 @@
             "email": "nobody@projectronin.com",
             "url": "https://github.com/projectronin/prodeng-clinical-data"
         },
-        "version": "2.3.3"
+        "version": "2.4.0"
     },
     "servers": [
         {
@@ -1393,7 +1393,7 @@
                 "security": [{"seki": []}]
             }
         },
-        "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans?status={statusValue}": {
+        "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans": {
             "get": {
                 "tags": ["treatment plan"],
                 "summary": "Get Patient Treatment Plan",
@@ -1404,7 +1404,7 @@
                     {"$ref":  "#/components/parameters/pathPatientId"},
                     {
                         "name": "statusValue",
-                        "in": "path",
+                        "in": "query",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -1446,11 +1446,7 @@
                     }
                 },
                 "security": [{"seki": []}]
-            }
-            
-        },
-
-        "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans": {
+            },
             "post": {
                 "tags": ["treatment plan"],
                 "summary": "Create or update a treatment plan",
@@ -1503,7 +1499,7 @@
                 {"$ref":  "#/components/parameters/pathTenantId"},
                 {"$ref":  "#/components/parameters/pathPatientId"},
                 {
-                    "name": "treamentPlanId",
+                    "name": "treatmentPlanId",
                     "in": "path",
                     "required": true,
                     "schema": {
@@ -1514,7 +1510,7 @@
             "delete": {
                 "tags": ["treatment plan"],
                 "summary": "Delete a treatment plan",
-                "description": "Deletes a treament plan",
+                "description": "Deletes a treatment plan",
                 "operationId": "deleteTreatmentPlan",
                 "responses": {
                     "204": {
