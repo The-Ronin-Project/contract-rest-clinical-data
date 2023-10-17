@@ -50,7 +50,6 @@
           "tenantId",
           "patientId",
           "status",
-          "displayName",
           "rowCreatedAt",
           "rowUpdatedAt"
         ]
