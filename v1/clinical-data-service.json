@@ -1396,9 +1396,9 @@
         "/v1/tenants/{tenantId}/patients/{patientId}/treatment-plans": {
             "get": {
                 "tags": ["treatment plan"],
-                "summary": "Get Patient Treatment Plan",
-                "description": "Retrieves a Treatment Plan",
-                "operationId": "getTreatmentPlan",
+                "summary": "Get Patient Treatment Plans",
+                "description": "Retrieves a patient's Treatment Plans",
+                "operationId": "getPatientTreatmentPlans",
                 "parameters": [
                     {"$ref":  "#/components/parameters/pathTenantId"},
                     {"$ref":  "#/components/parameters/pathPatientId"},
