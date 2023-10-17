@@ -1456,7 +1456,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "description": "Collection of treatment plans",
             "content": {
               "application/json": {
@@ -1502,7 +1502,7 @@
           { "$ref": "#/components/parameters/pathPatientId" }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Success",
             "content": {
               "application/json": {
