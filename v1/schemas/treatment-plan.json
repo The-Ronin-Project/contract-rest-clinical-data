@@ -109,7 +109,7 @@
             "maxLength": 255
           } 
         },
-        "required": ["tenantId", "patientId", "status"]
+        "required": ["tenantId", "patientId"]
       }
     }
   }
