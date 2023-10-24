@@ -44,14 +44,6 @@
                             "$ref": "#/components/schemas/AppointmentProvider"
                         }
                     },
-                    "originCreatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "originUpdatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
                     "rowCreatedAt": {
                         "type": "string",
                         "format": "date-time"
@@ -113,14 +105,6 @@
                         "items": {
                             "$ref": "#/components/schemas/AppointmentProvider"
                         }
-                    },
-                    "originCreatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "originUpdatedAt": {
-                        "type": "string",
-                        "format": "date-time"
                     }
                 },
                 "required": [
@@ -128,9 +112,7 @@
                     "patientId",
                     "status",
                     "locations",
-                    "providers",
-                    "originCreatedAt",
-                    "originUpdatedAt"
+                    "providers"
                 ]
             },
             "SaveAppointmentRequestBody": {
@@ -167,22 +149,12 @@
                         "items": {
                             "$ref": "#/components/schemas/AppointmentProvider"
                         }
-                    },
-                    "originCreatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "originUpdatedAt": {
-                        "type": "string",
-                        "format": "date-time"
                     }
                 },
                 "required": [
                     "status",
                     "locations",
-                    "providers",
-                    "originCreatedAt",
-                    "originUpdatedAt"
+                    "providers"
                 ]
             },
             "AppointmentLocation": {

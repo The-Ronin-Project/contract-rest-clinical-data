@@ -46,14 +46,6 @@
                     "isDeceased": {
                         "type": "boolean"
                     },
-                    "originCreatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "originUpdatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
                     "rowCreatedAt": {
                         "type": "string",
                         "format": "date-time"
@@ -121,14 +113,6 @@
                     },
                     "isDeceased": {
                         "type": "boolean"
-                    },
-                    "originCreatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "originUpdatedAt": {
-                        "type": "string",
-                        "format": "date-time"
                     }
                 },
                 "required": [
@@ -137,9 +121,7 @@
                     "mrn",
                     "displayName",
                     "birthSex",
-                    "isDeceased",
-                    "originCreatedAt",
-                    "originUpdatedAt"
+                    "isDeceased"
                 ]
             },
             "CreatePatientResponseBody": {
@@ -193,14 +175,6 @@
                     },
                     "isDeceased": {
                         "type": "boolean"
-                    },
-                    "originCreatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "originUpdatedAt": {
-                        "type": "string",
-                        "format": "date-time"
                     }
                 },
                 "required": [
@@ -209,9 +183,7 @@
                     "displayName",
                     "birthSex",
                     "isDeceased",
-                    "active",
-                    "originCreatedAt",
-                    "originUpdatedAt"
+                    "active"
                 ]
             }
         }
