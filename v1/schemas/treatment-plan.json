@@ -27,13 +27,7 @@
           "status": {
             "type": "string"
           },
-          "cycleNumber": {
-            "type": "string"
-          },
           "startDateTime": {
-            "type": "string"
-          },
-          "lastDoseDateTime": {
             "type": "string"
           },
           "rowCreatedAt": {
@@ -93,21 +87,11 @@
             "minLength": 1,
             "maxLength": 255
           },
-          "cycleNumber": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          },
           "startDateTime": {
             "type": "string",
             "minLength": 1,
             "maxLength": 255
-          },
-          "lastDoseDateTime": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          } 
+          }
         },
         "required": ["tenantId", "patientId"]
       }
