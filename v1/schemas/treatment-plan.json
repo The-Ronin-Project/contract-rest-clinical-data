@@ -30,6 +30,12 @@
           "startDateTime": {
             "type": "string"
           },
+          "categorySystem": {
+            "type": "string"
+          },
+          "categoryCode": {
+            "type": "string"
+          },
           "rowCreatedAt": {
             "type": "string",
             "format": "date-time"
@@ -44,6 +50,8 @@
           "tenantId",
           "patientId",
           "status",
+          "categoryCode",
+          "categorySystem",
           "rowCreatedAt",
           "rowUpdatedAt"
         ]
@@ -91,9 +99,19 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 255
+          },
+          "categorySystem": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "categoryCode": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           }
         },
-        "required": ["tenantId", "patientId"]
+        "required": ["tenantId", "patientId", "categorySystem", "categoryCode", "status"]
       }
     }
   }
