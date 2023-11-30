@@ -839,6 +839,15 @@
           { "$ref": "#/components/parameters/pathTenantId" },
           { "$ref": "#/components/parameters/pathPatientId" }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/treatment-plan.json#/components/schemas/SaveTreatmentPlanRequestBody"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Success",
