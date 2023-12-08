@@ -51,9 +51,7 @@
           "patientId",
           "status",
           "categoryCode",
-          "categorySystem",
-          "rowCreatedAt",
-          "rowUpdatedAt"
+          "categorySystem"
         ]
       },
       "CreateTreatmentPlanResponseBody": {
