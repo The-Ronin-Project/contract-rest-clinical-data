@@ -73,16 +73,6 @@
             "minLength": 1,
             "maxLength": 255
           },
-          "tenantId": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          },
-          "patientId": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          },
           "name": {
             "type": "string",
             "minLength": 1,
@@ -109,7 +99,7 @@
             "maxLength": 255
           }
         },
-        "required": ["tenantId", "patientId", "categorySystem", "categoryCode", "status"]
+        "required": ["categorySystem", "categoryCode", "status"]
       }
     }
   }
