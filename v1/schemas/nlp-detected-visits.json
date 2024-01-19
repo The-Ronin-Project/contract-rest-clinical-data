@@ -99,7 +99,7 @@
           },
           "nlpDate": {
             "type": "string",
-            "format": "date",
+            "example": "2024-01-05",
             "description": "FHIR date-time at which the timeline event/encounter occurred"
           },
           "nlpSourceIndexStart": {
@@ -180,7 +180,7 @@
           },
           "nlpDate": {
             "type": "string",
-            "format": "date",
+            "example": "2024-01-05",
             "description": "FHIR date-time at which the timeline event/encounter occurred"
           }
         },
