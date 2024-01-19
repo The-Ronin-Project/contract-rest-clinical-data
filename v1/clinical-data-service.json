@@ -16,8 +16,12 @@
   ],
   "tags": [
     {
-      "name": "nlp detected visit",
-      "description": "Relating to nlp detected visits"
+      "name": "nlp detected visits",
+      "description": "Relating to NLP Detected Visits"
+    },
+    {
+      "name": "nlp detected visit invalidations",
+      "description": "Relating to NLP Detected Visit Invalidations"
     },
     {
       "name": "appointment",
@@ -41,10 +45,9 @@
     }
   ],
   "paths": {
-
     "/v1/tenants/{tenantId}/patients/{patientId}/nlp-detected-visits": {
       "get": {
-        "tags": ["nlp detected visit"],
+        "tags": ["nlp detected visits"],
         "summary": "NLP Detected Visits",
         "description": "Retrieves NLP Detected Visit records for a patient, optionally for a document (if specified)",
         "operationId": "getNlpDetectedVisits",
@@ -90,7 +93,7 @@
         "security": [{ "seki": [] }]
       },
       "post": {
-        "tags": ["nlp detected visit"],
+        "tags": ["nlp detected visits"],
         "summary": "Save an NLP Detected Visit",
         "description": "Saves an NLP Detected Visit. If an id is provided, an existing NLP Detected Visit will be updated if there is one, or created if not. In the case an id is not provided, a new NLP Detected Visit will be created with a new id.",
         "operationId": "saveNlpDetectedVisit",
@@ -155,7 +158,7 @@
 
     "/v1/tenants/{tenantId}/patients/{patientId}/nlp-detected-visits/{nlpDetectedVisitId}": {
       "delete": {
-        "tags": ["nlp detected visit"],
+        "tags": ["nlp detected visits"],
         "summary": "Delete an NLP Detected Visit",
         "description": "Delete the specified NLP Detected Visit",
         "operationId": "deleteNlpDetectedVisit",
@@ -203,6 +206,195 @@
           }
         },
         "security": [{ "seki": [] }]
+      }
+    },
+    "/v1/tenants/{tenantId}/patients/{patientId}/nlp-detected-visit-invalidations": {
+      "get": {
+        "tags": ["nlp detected visit invalidations"],
+        "summary": "NLP Detected Visit Invalidations",
+        "description": "Retrieves NLP Detected Visit Invalidation records for a document reference and date",
+        "operationId": "getNlpDetectedVisitInvalidations",
+        "parameters": [
+          { "$ref": "#/components/parameters/pathTenantId" },
+          { "$ref": "#/components/parameters/pathPatientId" },
+          {
+            "name": "derivedDocumentReferenceId",
+            "in": "query",
+            "schema": { "type": "string" },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/nlp-detected-visits.json#/components/schemas/NlpDetectedVisitInvalidation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "seki": [] }]
+      },
+      "post": {
+        "tags": ["nlp detected visit invalidations"],
+        "summary": "Save an NLP Detected Visit Invalidation",
+        "description": "Saves an NLP Detected Visit Invalidation. If an id is provided, an existing NLP Detected Visit Invalidation will be updated if there is one, or created if not. In the case an id is not provided, a new NLP Detected Visit Invalidation will be created with a new id.",
+        "operationId": "saveNlpDetectedVisitInvalidation",
+        "parameters": [
+          { "$ref": "#/components/parameters/pathTenantId" },
+          { "$ref": "#/components/parameters/pathPatientId" }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schemas/nlp-detected-visits.json#/components/schemas/SaveNlpDetectedVisitInvalidationRequestBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/nlp-detected-visits.json#/components/schemas/NlpDetectedVisitInvalidation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "seki": [] }]
+      }
+    },
+    "/v1/tenants/{tenantId}/patients/{patientId}/nlp-detected-visit-invalidations/{nlpDetectedVisitInvalidationId}": {
+      "delete": {
+        "tags": [
+          "nlp detected visit invalidations"
+        ],
+        "summary": "Delete an NLP Detected Visit Invalidation",
+        "description": "Delete the specified NLP Detected Visit",
+        "operationId": "deleteNlpDetectedVisitInvalidation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pathTenantId"
+          },
+          {
+            "$ref": "#/components/parameters/pathPatientId"
+          },
+          {
+            "name": "nlpDetectedVisitInvalidationId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/common-types.json#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
       }
     },
 
@@ -1144,7 +1336,7 @@
         "schema": {
           "$ref": "schemas/common-types.json#/components/schemas/PatientId"
         },
-        "example": "seedPatientId01",
+        "example": "022628c4-d1ea-4ae3-9a6b-04c30ac4f903",
         "required": true
       }
     }

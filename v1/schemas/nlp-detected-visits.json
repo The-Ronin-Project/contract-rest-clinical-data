@@ -20,6 +20,10 @@
             "type": "string",
             "description": "ID of the tenant the patient belongs to"
           },
+          "patientId": {
+            "type": "string",
+            "description": "ID of the patient the NLP Detected Visit belongs to"
+          },
           "derivedFromDocumentReferenceId": {
             "type": "string",
             "description": "Id of the Document reference cited in the Ronin NLP Detected Visit, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
@@ -34,7 +38,7 @@
           },
           "nlpDate": {
             "type": "string",
-            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time"
+            "description": "FHIR date-time (always stored as date only) at which the timeline event/encounter occurred"
           },
           "nlpSourceIndexStart": {
             "type": "integer",
@@ -51,13 +55,6 @@
           "rowUpdatedAt": {
             "type": "string",
             "format": "date-time"
-          },
-          "invalidations": {
-            "type": "array",
-            "description": "NLP Detected Visit Invalidations; expected to only ever have length 1 or 0",
-            "items": {
-              "$ref": "#/components/schemas/NlpDetectedVisitInvalidation"
-            }
           }
         },
         "required": [
@@ -86,9 +83,17 @@
           },
           "tenantId": {
             "type": "string",
+            "default": "apposnd",
             "minLength": 1,
             "maxLength": 255,
             "description": "ID of the tenant the patient belongs to"
+          },
+          "patientId": {
+            "type": "string",
+            "default": "022628c4-d1ea-4ae3-9a6b-04c30ac4f903",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "ID of the patient the NLP Detected Visit belongs to"
           },
           "derivedFromDocumentReferenceId": {
             "type": "string",
@@ -98,12 +103,14 @@
           },
           "typeSystem": {
             "type": "string",
+            "default": "http://snomed.info/sct",
             "minLength": 1,
             "maxLength": 255,
             "description": "System/protocol systemCode belongs to, always expected to be 'http://snomed.info/sct'"
           },
           "typeCode": {
             "type": "string",
+            "default": "50849002",
             "minLength": 1,
             "maxLength": 255,
             "description": "Code corresponding to a particular type of 'Encounter'; NLP Detected Visits are always expected to contain only one CodeableConcept with this information"
@@ -111,13 +118,15 @@
           "nlpDate": {
             "type": "string",
             "format": "date",
-            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time"
+            "description": "FHIR date-time at which the timeline event/encounter occurred"
           },
           "nlpSourceIndexStart": {
+            "default": 2,
             "type": "integer",
             "description": "Start index of where in the source document the encounter was found"
           },
           "nlpSourceIndexEnd": {
+            "default": 12,
             "type": "integer",
             "description": "End index of where in the source document the encounter was found"
           }
@@ -131,15 +140,33 @@
           "typeCode",
           "nlpDate",
           "nlpSourceIndexStart",
-          "nlpSourceIndexEnd",
-          "rowCreatedAt",
-          "rowUpdatedAt"
+          "nlpSourceIndexEnd"
         ]
       },
       "NlpDetectedVisitInvalidation": {
         "title": "Invalidation of an NLP Detected Visit, originating from user action",
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the NLP Detected Visit Invalidation"
+          },
+          "tenantId": {
+            "type": "string",
+            "description": "ID of the tenant the patient belongs to"
+          },
+          "patientId": {
+            "type": "string",
+            "description": "ID of the patient the NLP Detected Visit belongs to"
+          },
+          "derivedFromDocumentReferenceId": {
+            "type": "string",
+            "description": "Id of the Document reference cited in the Ronin NLP Detected Visit, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
+          },
+          "nlpDate": {
+            "type": "string",
+            "description": "FHIR date-time (always stored as date only) at which the timeline event/encounter occurred"
+          },
           "userId": {
             "type": "string",
             "description": "UDP ID of the user whose action the invalidation originated from"
@@ -157,6 +184,49 @@
           "userId",
           "rowCreatedAt",
           "rowUpdatedAt"
+        ]
+      },
+      "SaveNlpDetectedVisitInvalidationRequestBody": {
+        "title": "Input structure for creating or updating an NLP Detected Visit Invalidation",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "Unique identifier; If not provided, a new id will be generated"
+          },
+          "tenantId": {
+            "type": "string",
+            "default": "apposnd",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "ID of the tenant the patient belongs to"
+          },
+          "patientId": {
+            "type": "string",
+            "default": "022628c4-d1ea-4ae3-9a6b-04c30ac4f903",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "ID of the patient the NLP Detected Visit belongs to"
+          },
+          "derivedFromDocumentReferenceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "Id of the Document reference cited in the Ronin NLP Detected Visit, stored without the reference prefix ('ronin-123', not 'DocumentReference/ronin-123')"
+          },
+          "nlpDate": {
+            "type": "string",
+            "format": "date",
+            "description": "FHIR date-time at which the timeline event/encounter occurred"
+          }
+        },
+        "required": [
+          "tenantId",
+          "patientId",
+          "derivedFromDocumentReferenceId",
+          "nlpDate"
         ]
       }
     }
