@@ -100,21 +100,24 @@
           "nlpDate": {
             "type": "string",
             "example": "2024-01-05",
+            "minLength": 1,
+            "maxLength": 255,
             "description": "FHIR date-time at which the timeline event/encounter occurred"
           },
           "nlpSourceIndexStart": {
             "example": 2,
             "type": "integer",
+            "minimum": 0,
             "description": "Start index of where in the source document the encounter was found"
           },
           "nlpSourceIndexEnd": {
             "example": 12,
             "type": "integer",
+            "minimum": 0,
             "description": "End index of where in the source document the encounter was found"
           }
         },
         "required": [
-          "id",
           "derivedFromDocumentReferenceId",
           "typeSystem",
           "typeCode",
@@ -179,6 +182,8 @@
           "nlpDate": {
             "type": "string",
             "example": "2024-01-05",
+            "minLength": 1,
+            "maxLength": 255,
             "description": "FHIR date-time at which the timeline event/encounter occurred"
           }
         },
