@@ -46,6 +46,8 @@ In general, either run:
 
 `./gradlew <COMMAND> <ARGUMENTS>`
 
+`./gradlew check`
+
 (requires JDK 11+ and node 16+ installed and working)
 
 or

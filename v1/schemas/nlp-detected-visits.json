@@ -34,7 +34,7 @@
           },
           "nlpDate": {
             "type": "string",
-            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time",
+            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time"
           },
           "nlpSourceIndexStart": {
             "type": "integer",
@@ -111,7 +111,7 @@
           "nlpDate": {
             "type": "string",
             "format": "date",
-            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time",
+            "description": "FHIR date-time at which the timeline event/encounter occurred; expected to be a date, but is technically able to be a date-time"
           },
           "nlpSourceIndexStart": {
             "type": "integer",
