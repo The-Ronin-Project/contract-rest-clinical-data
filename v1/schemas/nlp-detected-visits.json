@@ -66,9 +66,7 @@
           "typeCode",
           "nlpDate",
           "nlpSourceIndexStart",
-          "nlpSourceIndexEnd",
-          "rowCreatedAt",
-          "rowUpdatedAt"
+          "nlpSourceIndexEnd"
         ]
       },
       "SaveNlpDetectedVisitRequestBody": {
@@ -181,9 +179,7 @@
           }
         },
         "required": [
-          "userId",
-          "rowCreatedAt",
-          "rowUpdatedAt"
+          "userId"
         ]
       },
       "SaveNlpDetectedVisitInvalidationRequestBody": {
