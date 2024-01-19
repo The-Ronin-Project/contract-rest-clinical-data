@@ -136,16 +136,6 @@
           "rowUpdatedAt"
         ]
       },
-      "SaveNlpDetectedVisitResponseBody": {
-        "title": "Response for successful create",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": ["id"]
-      },
       "NlpDetectedVisitInvalidation": {
         "title": "Invalidation of an NLP Detected Visit, originating from user action",
         "type": "object",
@@ -168,16 +158,6 @@
           "rowCreatedAt",
           "rowUpdatedAt"
         ]
-      },
-      "SaveNlpDetectedVisitInvalidationResponseBody": {
-        "title": "Response for successful create",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": ["id"]
       }
     }
   }

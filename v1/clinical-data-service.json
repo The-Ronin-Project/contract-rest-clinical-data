@@ -4,9 +4,8 @@
     "title": "Clinical Data Service",
     "description": "The CDS API contract",
     "contact": {
-      "name": "Ronin Internal",
-      "email": "nobody@projectronin.com",
-      "url": "https://github.com/projectronin/prodeng-clinical-data"
+      "name": "Team APEX (in Slack)",
+      "url": "https://projectronin.slack.com/archives/C03QLMWKE12"
     },
     "version": "3.6.0"
   },
