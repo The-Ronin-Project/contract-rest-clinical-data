@@ -218,7 +218,7 @@
           { "$ref": "#/components/parameters/pathTenantId" },
           { "$ref": "#/components/parameters/pathPatientId" },
           {
-            "name": "derivedDocumentReferenceId",
+            "name": "derivedFromDocumentReferenceId",
             "in": "query",
             "schema": { "type": "string" },
             "required": false
