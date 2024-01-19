@@ -230,7 +230,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/nlp-detected-visits.json#/components/schemas/NlpDetectedVisitInvalidation"
+                  "type": "array",
+                  "items": {
+                    "$ref": "schemas/nlp-detected-visits.json#/components/schemas/NlpDetectedVisitInvalidation"
+                  }
                 }
               }
             }

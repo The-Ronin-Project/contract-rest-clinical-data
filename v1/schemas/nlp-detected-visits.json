@@ -64,9 +64,7 @@
           "derivedFromDocumentReferenceId",
           "typeSystem",
           "typeCode",
-          "nlpDate",
-          "nlpSourceIndexStart",
-          "nlpSourceIndexEnd"
+          "nlpDate"
         ]
       },
       "SaveNlpDetectedVisitRequestBody": {
@@ -79,20 +77,6 @@
             "maxLength": 255,
             "description": "Value derived from the ID of the detected encounter represented by the RCDM profile 'Ronin NLP Detected Visit'; If not provided, a new id will be generated"
           },
-          "tenantId": {
-            "type": "string",
-            "default": "apposnd",
-            "minLength": 1,
-            "maxLength": 255,
-            "description": "ID of the tenant the patient belongs to"
-          },
-          "patientId": {
-            "type": "string",
-            "default": "022628c4-d1ea-4ae3-9a6b-04c30ac4f903",
-            "minLength": 1,
-            "maxLength": 255,
-            "description": "ID of the patient the NLP Detected Visit belongs to"
-          },
           "derivedFromDocumentReferenceId": {
             "type": "string",
             "minLength": 1,
@@ -101,14 +85,14 @@
           },
           "typeSystem": {
             "type": "string",
-            "default": "http://snomed.info/sct",
+            "example": "http://snomed.info/sct",
             "minLength": 1,
             "maxLength": 255,
             "description": "System/protocol systemCode belongs to, always expected to be 'http://snomed.info/sct'"
           },
           "typeCode": {
             "type": "string",
-            "default": "50849002",
+            "example": "50849002",
             "minLength": 1,
             "maxLength": 255,
             "description": "Code corresponding to a particular type of 'Encounter'; NLP Detected Visits are always expected to contain only one CodeableConcept with this information"
@@ -119,26 +103,22 @@
             "description": "FHIR date-time at which the timeline event/encounter occurred"
           },
           "nlpSourceIndexStart": {
-            "default": 2,
+            "example": 2,
             "type": "integer",
             "description": "Start index of where in the source document the encounter was found"
           },
           "nlpSourceIndexEnd": {
-            "default": 12,
+            "example": 12,
             "type": "integer",
             "description": "End index of where in the source document the encounter was found"
           }
         },
         "required": [
           "id",
-          "patientId",
-          "tenantId",
           "derivedFromDocumentReferenceId",
           "typeSystem",
           "typeCode",
-          "nlpDate",
-          "nlpSourceIndexStart",
-          "nlpSourceIndexEnd"
+          "nlpDate"
         ]
       },
       "NlpDetectedVisitInvalidation": {
@@ -163,7 +143,7 @@
           },
           "nlpDate": {
             "type": "string",
-            "description": "FHIR date-time (always stored as date only) at which the timeline event/encounter occurred"
+            "description": "FHIR date-time (expected to be date only) at which the timeline event/encounter occurred"
           },
           "userId": {
             "type": "string",
@@ -192,20 +172,6 @@
             "maxLength": 255,
             "description": "Unique identifier; If not provided, a new id will be generated"
           },
-          "tenantId": {
-            "type": "string",
-            "default": "apposnd",
-            "minLength": 1,
-            "maxLength": 255,
-            "description": "ID of the tenant the patient belongs to"
-          },
-          "patientId": {
-            "type": "string",
-            "default": "022628c4-d1ea-4ae3-9a6b-04c30ac4f903",
-            "minLength": 1,
-            "maxLength": 255,
-            "description": "ID of the patient the NLP Detected Visit belongs to"
-          },
           "derivedFromDocumentReferenceId": {
             "type": "string",
             "minLength": 1,
@@ -219,8 +185,6 @@
           }
         },
         "required": [
-          "tenantId",
-          "patientId",
           "derivedFromDocumentReferenceId",
           "nlpDate"
         ]
