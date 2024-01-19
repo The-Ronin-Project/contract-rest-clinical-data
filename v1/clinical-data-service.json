@@ -47,7 +47,7 @@
       "get": {
         "tags": ["nlp detected visit"],
         "summary": "NLP Detected Visits",
-        "Description": "Retrieves NLP Detected Visit records for a patient, optionally for a document (if specified)",
+        "description": "Retrieves NLP Detected Visit records for a patient, optionally for a document (if specified)",
         "operationId": "getNlpDetectedVisits",
         "parameters": [
           { "$ref": "#/components/parameters/pathTenantId" },
